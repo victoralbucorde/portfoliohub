@@ -18,3 +18,5 @@ __pycache__/
 
 # Ferramentas locais
 .claude/
+.gemini/
+.chatgpt/
