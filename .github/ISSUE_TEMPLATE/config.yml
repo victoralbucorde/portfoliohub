@@ -1,0 +1,5 @@
+blank_issues_enabled: false
+contact_links:
+  - name: Vulnerabilidade de segurança
+    url: https://github.com/victoralbucorde/portfoliohub/security/advisories/new
+    about: Não abra issue pública — use o reporte privado de vulnerabilidades.

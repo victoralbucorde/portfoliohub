@@ -1,0 +1,46 @@
+name: CI
+
+on:
+  pull_request:
+  push:
+    branches: [main]
+
+# Privilégio mínimo: o workflow só lê o código
+permissions:
+  contents: read
+
+jobs:
+  validar:
+    name: Validar conteúdo
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+
+      - name: JSON válido
+        run: |
+          python3 -m json.tool config.json > /dev/null
+          python3 -m json.tool projects.json > /dev/null
+
+      - name: Arquivos obrigatórios presentes
+        run: |
+          for f in index.html assets/js/app.js assets/css/style.css SECURITY.md README.md; do
+            test -f "$f" || { echo "::error::Arquivo ausente: $f"; exit 1; }
+          done
+
+      - name: CSP presente e sem innerHTML com dados externos
+        run: |
+          grep -q 'Content-Security-Policy' index.html || { echo "::error::CSP ausente"; exit 1; }
+          if grep -n 'innerHTML' assets/js/*.js; then
+            echo "::error::Use textContent em vez de innerHTML"; exit 1
+          fi
+
+  segredos:
+    name: Varredura de segredos
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          fetch-depth: 0
+      - uses: gitleaks/gitleaks-action@v2
+        env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}

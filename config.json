@@ -1,0 +1,14 @@
+{
+  "githubUser": "victoralbucorde",
+  "displayName": "Victor Cordeiro",
+  "role": "Desenvolvedor em formação · Bootcamp",
+  "bio": "Portfólio de projetos desenvolvidos durante o Bootcamp. Os repositórios públicos do GitHub aparecem aqui automaticamente.",
+  "featuredRepos": ["portfoliohub"],
+  "excludeRepos": [],
+  "includeForks": false,
+  "includeArchived": false,
+  "links": [
+    { "label": "GitHub", "url": "https://github.com/victoralbucorde" },
+    { "label": "LinkedIn", "url": "https://www.linkedin.com/in/SEU-PERFIL" }
+  ]
+}

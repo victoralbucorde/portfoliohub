@@ -1,0 +1,20 @@
+# Sistema operacional / editores
+.DS_Store
+Thumbs.db
+.vscode/
+.idea/
+
+# Segredos e variáveis de ambiente — NUNCA versionar
+.env
+.env.*
+*.pem
+*.key
+secrets.*
+
+# Dependências e builds
+node_modules/
+dist/
+__pycache__/
+
+# Ferramentas locais
+.claude/

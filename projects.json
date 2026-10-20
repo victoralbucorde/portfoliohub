@@ -1,0 +1,12 @@
+[
+  {
+    "name": "PortfolioHUB — Entrega Final",
+    "description": "Implantação do PortfolioHUB com GitHub Pages, GitHub Actions, CodeQL, Dependabot e políticas de segurança, usando o Google Gemini como guia.",
+    "url": "https://github.com/victoralbucorde/portfoliohub",
+    "homepage": "https://victoralbucorde.github.io/portfoliohub/",
+    "language": "JavaScript",
+    "topics": ["bootcamp", "github-pages", "gemini", "devsecops"],
+    "featured": true,
+    "updated": "2026-10-20"
+  }
+]

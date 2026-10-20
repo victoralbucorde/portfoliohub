@@ -1,0 +1,92 @@
+<!doctype html>
+<html lang="pt-BR">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <!-- Política de segurança de conteúdo: só carrega código local e só conversa com a API do GitHub -->
+  <meta http-equiv="Content-Security-Policy"
+        content="default-src 'self'; script-src 'self'; style-src 'self'; img-src 'self' https://avatars.githubusercontent.com data:; connect-src 'self' https://api.github.com; base-uri 'self'; form-action 'none'; object-src 'none'">
+  <meta name="referrer" content="strict-origin-when-cross-origin">
+  <meta name="description" content="PortfolioHUB — portfólio de projetos integrado ao GitHub">
+  <title>PortfolioHUB</title>
+  <link rel="icon" href="assets/favicon.svg" type="image/svg+xml">
+  <link rel="stylesheet" href="assets/css/style.css">
+</head>
+<body>
+  <header class="topbar">
+    <div class="wrap topbar-inner">
+      <a class="brand" href="./">Portfolio<span>HUB</span></a>
+      <nav aria-label="Principal">
+        <a href="#projetos">Projetos</a>
+        <a href="#sobre">Sobre</a>
+        <a id="nav-github" href="https://github.com" rel="noopener noreferrer" target="_blank">GitHub</a>
+      </nav>
+    </div>
+  </header>
+
+  <main>
+    <section class="hero wrap" aria-live="polite">
+      <img id="avatar" class="avatar" alt="" width="112" height="112" hidden>
+      <div>
+        <p class="eyebrow" id="role">Portfólio</p>
+        <h1 id="name">Carregando…</h1>
+        <p id="bio" class="bio"></p>
+        <ul id="stats" class="stats" aria-label="Estatísticas"></ul>
+      </div>
+    </section>
+
+    <section id="projetos" class="wrap">
+      <div class="section-head">
+        <h2>Projetos</h2>
+        <div class="controls">
+          <label class="sr-only" for="search">Buscar projeto</label>
+          <input id="search" type="search" placeholder="Buscar por nome, descrição ou tópico" autocomplete="off">
+          <label class="sr-only" for="sort">Ordenar</label>
+          <select id="sort">
+            <option value="featured">Destaques primeiro</option>
+            <option value="updated">Atualizados recentemente</option>
+            <option value="stars">Mais estrelas</option>
+            <option value="name">Nome (A–Z)</option>
+          </select>
+        </div>
+      </div>
+      <div id="languages" class="chips" role="group" aria-label="Filtrar por linguagem"></div>
+      <p id="status" class="status" role="status"></p>
+      <div id="grid" class="grid"></div>
+    </section>
+
+    <section id="sobre" class="wrap about">
+      <h2>Sobre o PortfolioHUB</h2>
+      <p>Esta página lista automaticamente os repositórios públicos do GitHub, junto com projetos cadastrados manualmente em <code>projects.json</code>. Cada alteração no repositório passa por Pull Request, revisão e verificações automáticas de segurança antes de ser publicada no GitHub Pages.</p>
+      <ul id="links" class="links"></ul>
+    </section>
+  </main>
+
+  <footer class="wrap footer">
+    <p>Construído com HTML, CSS e JavaScript puros · Dados da <a href="https://docs.github.com/rest" rel="noopener noreferrer" target="_blank">API REST do GitHub</a></p>
+  </footer>
+
+  <template id="card-tpl">
+    <article class="card">
+      <div class="card-top">
+        <h3 class="card-title"><a target="_blank" rel="noopener noreferrer"></a></h3>
+        <span class="badge" hidden>Destaque</span>
+      </div>
+      <p class="card-desc"></p>
+      <ul class="topics"></ul>
+      <div class="card-meta">
+        <span class="lang"><i class="dot"></i><span></span></span>
+        <span class="stars" title="Estrelas"></span>
+        <span class="forks" title="Forks"></span>
+        <span class="updated"></span>
+      </div>
+      <div class="card-actions">
+        <a class="btn code" target="_blank" rel="noopener noreferrer">Código</a>
+        <a class="btn demo" target="_blank" rel="noopener noreferrer" hidden>Ver online</a>
+      </div>
+    </article>
+  </template>
+
+  <script src="assets/js/app.js" defer></script>
+</body>
+</html>

@@ -1,0 +1,10 @@
+version: 2
+updates:
+  # Mantém as Actions usadas nos workflows sempre atualizadas
+  - package-ecosystem: "github-actions"
+    directory: "/"
+    schedule:
+      interval: "weekly"
+    labels: ["dependencias", "seguranca"]
+    commit-message:
+      prefix: "chore(deps)"
